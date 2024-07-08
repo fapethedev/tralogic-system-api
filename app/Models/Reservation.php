@@ -13,4 +13,14 @@ class Reservation extends Model
         'departure_time',
         'arrival_time',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function transport()
+    {
+        return $this->belongsTo(Transport::class);
+    }
 }
