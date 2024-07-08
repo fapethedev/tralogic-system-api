@@ -1,0 +1,17 @@
+services:
+    tralogic-service:
+        image: postgres:16.3
+        container_name: pgsql-db
+        ports:
+            - "${DB_PORT}:5432"
+        env_file:
+            - .env
+        environment:
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - tralogic-data:/var/lib/postgresql/data
+
+volumes:
+    tralogic-data:
